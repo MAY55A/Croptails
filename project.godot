@@ -14,6 +14,10 @@ config/name="croptails"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ToolManager="*res://scripts/globals/tool_manager.gd"
+
 [display]
 
 window/size/viewport_width=640
