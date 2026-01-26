@@ -7,5 +7,5 @@ class_name CollectableComponent
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		print("Collectable")
+		print("Collected: ", collectable_name)
 		get_parent().queue_free()
