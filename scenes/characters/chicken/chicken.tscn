@@ -65,16 +65,18 @@ animations = [{
 radius = 4.0
 
 [node name="Chicken" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 64
 script = ExtResource("1_r6a33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_31inw")
 animation = &"walk"
 autoplay = "idle"
 frame = 2
 frame_progress = 0.6925071
+offset = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
