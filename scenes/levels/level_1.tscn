@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://d2h46cydcn0jd"]
+[gd_scene load_steps=23 format=4 uid="uid://d2h46cydcn0jd"]
 
 [ext_resource type="PackedScene" uid="uid://so2ecxw3pgpm" path="res://scenes/components/save_level_data_component.tscn" id="1_bahl2"]
 [ext_resource type="TileSet" uid="uid://cp164pqd3bfeo" path="res://tilesets/game_tileset.tres" id="1_ksju7"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://fr2lvt5jalw3" path="res://scenes/objects/chest/chest.tscn" id="12_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://cnux2utqxscve" path="res://scenes/objects/milk.tscn" id="13_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://dgd5u7t1qn7uf" path="res://scenes/objects/egg.tscn" id="14_iwr0g"]
+[ext_resource type="PackedScene" uid="uid://bp4hobigmhq8w" path="res://audio/music/on_the_farm_music.tscn" id="18_np2pn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s8va5"]
 vertices = PackedVector2Array(272, 135.46875, 326, 135.20313, 326, 142, 272, 142, 358, 142, 358, 191, 262, 191, 176, 142, 176, 239, 262, 239)
@@ -44,6 +45,9 @@ source_geometry_mode = 2
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
+
+[node name="OnTheFarmMusic" parent="." instance=ExtResource("18_np2pn")]
+position = Vector2(-1, -2)
 
 [node name="SaveLevelDataComponent" parent="." instance=ExtResource("1_bahl2")]
 
