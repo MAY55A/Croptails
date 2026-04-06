@@ -22,6 +22,9 @@ func save_node_data() -> void:
 				var save_final_resource =  save_data_resource.duplicate()
 				game_data_resource.save_data_nodes.append(save_final_resource)
 
+func save_inventory() -> void:
+	game_data_resource.inventory = InventoryManager.inventory
+
 
 func save_game() -> void:
 	if !DirAccess.dir_exists_absolute(save_game_data_path):
@@ -30,6 +33,7 @@ func save_game() -> void:
 	var level_save_file_name = save_file_name % level_scene_name
 	
 	save_node_data()
+	save_inventory()
 	
 	var result: int = ResourceSaver.save(game_data_resource, save_game_data_path + level_save_file_name)
 	print ("Save reslut: ", result)
@@ -47,10 +51,14 @@ func load_game() -> void:
 	if game_data_resource == null:
 		return
 	
+	InventoryManager.inventory = game_data_resource.inventory
+	InventoryManager.inventory_changed.emit() # trigger UI rerendering
+	
 	var root_node: Window = get_tree().root
 	
 	for resource in game_data_resource.save_data_nodes:
 		if resource is Resource:
 			if resource is NodeDataResource:
 				resource._load_data(root_node)
+	
 	
