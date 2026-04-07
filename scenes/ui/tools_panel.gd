@@ -52,13 +52,14 @@ func _unhandled_input(event: InputEvent) -> void:
 func on_enable_tool_button(tool: DataTypes.Tools) -> void:
 	if tool == DataTypes.Tools.TillGround:
 		tool_tilling.disabled = false
-		tool_tilling.focus_mode = Control.FOCUS_ALL
+		# Use focus_click to prevent focusing when using arrow keys
+		tool_tilling.focus_mode = Control.FOCUS_CLICK
 	elif tool == DataTypes.Tools.WaterCrops:
 		tool_watering_can.disabled = false
-		tool_watering_can.focus_mode = Control.FOCUS_ALL
+		tool_watering_can.focus_mode = Control.FOCUS_CLICK
 	elif tool == DataTypes.Tools.PlantCorn:
 		tool_corn.disabled = false
-		tool_corn.focus_mode = Control.FOCUS_ALL
+		tool_corn.focus_mode = Control.FOCUS_CLICK
 	elif tool == DataTypes.Tools.PlantTomato:
 		tool_tomato.disabled = false
-		tool_tomato.focus_mode = Control.FOCUS_ALL
+		tool_tomato.focus_mode = Control.FOCUS_CLICK
