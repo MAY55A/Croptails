@@ -25,7 +25,9 @@ func save_node_data() -> void:
 func save_inventory() -> void:
 	game_data_resource.inventory = InventoryManager.inventory
 
-
+func save_tools_enabled() -> void:
+	game_data_resource.all_tools_enabled = ToolManager.all_tools_enabled
+	
 func save_game() -> void:
 	if !DirAccess.dir_exists_absolute(save_game_data_path):
 		DirAccess.make_dir_absolute(save_game_data_path)
@@ -34,6 +36,7 @@ func save_game() -> void:
 	
 	save_node_data()
 	save_inventory()
+	save_tools_enabled()
 	
 	var result: int = ResourceSaver.save(game_data_resource, save_game_data_path + level_save_file_name)
 	print ("Save reslut: ", result)
@@ -53,6 +56,11 @@ func load_game() -> void:
 	
 	InventoryManager.inventory = game_data_resource.inventory
 	InventoryManager.inventory_changed.emit() # trigger UI rerendering
+	
+	ToolManager.all_tools_enabled = game_data_resource.all_tools_enabled
+	# Since tools are disabled initially, we need to activate them if all_tools_enabled is true
+	if ToolManager.all_tools_enabled:
+		ToolManager.enable_all_tools()
 	
 	var root_node: Window = get_tree().root
 	

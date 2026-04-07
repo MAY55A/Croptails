@@ -30,7 +30,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			ballon.start(load("res://dialogue/conversations/guide.dialogue"), "start")
 
 func on_give_crop_seeds() -> void:
-	ToolManager.enable_tool_button(DataTypes.Tools.TillGround)
-	ToolManager.enable_tool_button(DataTypes.Tools.WaterCrops)
-	ToolManager.enable_tool_button(DataTypes.Tools.PlantCorn)
-	ToolManager.enable_tool_button(DataTypes.Tools.PlantTomato)
+	if !ToolManager.all_tools_enabled: # if all tools aren't already activated
+		ToolManager.enable_all_tools()
+		ToolManager.all_tools_enabled = true;
