@@ -66,10 +66,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_be5x3"]
 radius = 4.0
 
-[node name="Chicken" type="CharacterBody2D"]
+[node name="Chicken" type="CharacterBody2D" node_paths=PackedStringArray("audio_play_time_component")]
 y_sort_enabled = true
 collision_layer = 64
 script = ExtResource("1_r6a33")
+audio_play_time_component = NodePath("AudioPlayTimeComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)

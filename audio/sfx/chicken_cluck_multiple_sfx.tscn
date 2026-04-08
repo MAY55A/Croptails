@@ -8,6 +8,7 @@
 streams_count = 3
 stream_0/stream = ExtResource("1_h6qwj")
 stream_1/stream = ExtResource("2_mfy8w")
+stream_1/weight = 0.5
 stream_2/stream = ExtResource("3_samlp")
 
 [node name="ChickenCluckMultipleSFX" type="AudioStreamPlayer2D"]

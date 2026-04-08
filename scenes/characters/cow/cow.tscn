@@ -59,10 +59,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_dtuwe"]
 radius = 7.0
 
-[node name="Cow" type="CharacterBody2D"]
+[node name="Cow" type="CharacterBody2D" node_paths=PackedStringArray("audio_play_time_component")]
 y_sort_enabled = true
 collision_layer = 64
 script = ExtResource("1_j7g5r")
+min_audio_wait_time = 15
+max_audio_wait_time = 30
+audio_play_time_component = NodePath("AudioPlayTimeComponent")
 metadata/_custom_type_script = "uid://dvkfks2w5ft2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -101,6 +104,6 @@ navigation_agent_2d = NodePath("../../NavigationAgent2D")
 [node name="CowMooSFX" parent="." instance=ExtResource("6_cgos1")]
 
 [node name="AudioPlayTimeComponent" parent="." node_paths=PackedStringArray("audio_stream_player_2D") instance=ExtResource("7_gsrfl")]
-wait_time = 20.0
+wait_time = 10.0
 autostart = true
 audio_stream_player_2D = NodePath("../CowMooSFX")

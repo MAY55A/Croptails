@@ -6,3 +6,4 @@
 stream = ExtResource("1_iwkhc")
 autoplay = true
 bus = &"Music"
+parameters/looping = true
